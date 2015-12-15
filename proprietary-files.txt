@@ -15,7 +15,6 @@ etc/acdbdata/Handset_cal.acdb
 etc/acdbdata/Hdmi_cal.acdb
 etc/acdbdata/Headset_cal.acdb
 etc/acdbdata/Speaker_cal.acdb
-vendor/bin/audioflacapp
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
@@ -51,7 +50,6 @@ lib/hw/camera.msm8916.so
 vendor/lib/libactuator_ak7345.so
 vendor/lib/libactuator_ak7345_camcorder.so
 vendor/lib/libactuator_ak7345_camera.so
-vendor/lib/libimscamera_jni.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmmcamera2_c2d_module.so
@@ -162,11 +160,6 @@ bin/qseecomd
 lib/libdrmdecrypt.so
 vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib/qcdrm/playready/lib/drm/libdrmprplugin_customer.so
-vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmdecrypt_customer.so
-vendor/lib/qcdrm/playready/lib/mediadrm/libprmediadrmplugin_customer.so
-vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so
-vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
 vendor/lib/libQSEEComAPI.so
@@ -181,8 +174,8 @@ vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L1.so
 
 # GPS
--priv-app/com.qualcomm.location/com.qualcomm.location.apk
 -app/MotGeoFenceSvc/MotGeoFenceSvc.apk
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk
 bin/location-mq
 bin/xtwifi-client
 bin/xtwifi-inet-agent
@@ -216,16 +209,25 @@ vendor/lib/libxt_native.so
 
 # Graphics
 vendor/lib/egl/eglsubAndroid.so
+vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
+vendor/lib/egl/libESXEGL_adreno.so
+vendor/lib/egl/libESXGLESv1_CM_adreno.so
+vendor/lib/egl/libESXGLESv2_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
+vendor/lib/egl/libQTapGLES.so
+vendor/lib/egl/libRBEGL_adreno.so
+vendor/lib/egl/libRBGLESv1_CM_adreno.so
+vendor/lib/egl/libRBGLESv2_adreno.so
 vendor/lib/libadreno_utils.so
 vendor/lib/libbccQTI.so
 vendor/lib/libc2d30-a3xx.so
 vendor/lib/libC2D2.so
 vendor/lib/libCB.so
 vendor/lib/libgsl.so
+vendor/lib/libllvm-glnext.so
 vendor/lib/libllvm-qcom.so
 vendor/lib/libOpenCL.so
 vendor/lib/librs_adreno_sha1.so
@@ -237,18 +239,14 @@ vendor/lib/libscale.so
 # Graphics firmware
 etc/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw
-etc/firmware/a330_pfp.fw
-etc/firmware/a330_pm4.fw
 
 # Media
+lib/libdivxdrmdecrypt.so
 lib/libOmxVdecHevc.so
 vendor/lib/libDivxDrm.so
-vendor/lib/libExtendedExtractor.so
-vendor/lib/libFlacSwDec.so
 -vendor/lib/libHevcSwDecoder.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmmosal.so
-vendor/lib/libmmparser.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
@@ -260,33 +258,9 @@ vendor/lib/libwfdcommonutils.so
 bin/batt_health
 bin/dbvc_atvc_property_set
 bin/hardware_revisions.sh
-vendor/lib/libmmi.so
-vendor/lib/mmi_audio.so
-vendor/lib/mmi_battery.so
-vendor/lib/mmi_bt.so
-vendor/lib/mmi_flashlight.so
-vendor/lib/mmi_fm.so
-vendor/lib/mmi_gps_garden.so
-vendor/lib/mmi_gsensor.so
-vendor/lib/mmi_key.so
-vendor/lib/mmi_keypadbacklight.so
-vendor/lib/mmi_lcd.so
-vendor/lib/mmi_led.so
-vendor/lib/mmi_lsensor.so
-vendor/lib/mmi_msensor.so
-vendor/lib/mmi_psensor.so
-vendor/lib/mmi_sdcard.so
-vendor/lib/mmi_sim.so
-vendor/lib/mmi_sysinfo.so
-vendor/lib/mmi_touch.so
-vendor/lib/mmi_touchpanel.so
-vendor/lib/mmi_vibrator.so
-vendor/lib/mmi_volume.so
-vendor/lib/mmi_wifi.so
 
 # Qualcomm framework
 bin/irsc_util
-vendor/lib/libCommandSvc.so
 vendor/lib/libdiag.so
 vendor/lib/libDiagService.so
 vendor/lib/libdsi_netctrl.so
@@ -308,7 +282,6 @@ vendor/lib/libsmemlog.so
 
 # Radio
 -app/qcrilmsgtunnel/qcrilmsgtunnel.apk
-bin/ATFWD-daemon
 bin/netmgrd
 bin/qmuxd
 bin/radish
@@ -321,12 +294,10 @@ etc/permissions/qcrilhook.xml
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
 lib/libadropbox.so
-lib/libcnefeatureconfig.so
 lib/libmdmcutback.so
 lib/libmotext_inf.so
 lib/libqmimotext.so
 lib/libril.so
-lib/librmnetctl.so
 vendor/lib/libcneapiclient.so
 vendor/lib/libconfigdb.so
 vendor/lib/libmdmdetect.so
@@ -346,14 +317,12 @@ etc/firmware/sensorhubfw.bin
 etc/firmware/sensorhubver.txt
 
 # Sensors
-bin/akmd09912
 lib/hw/sensorhub.msm8916.so
 lib/hw/sensors.msm8916.so
 lib/libmotocalibration.so
 
 # STML0XX
 bin/stml0xx
-lib/libSTML0Updater.so
 
 # Thermal
 bin/thermal-engine
@@ -365,9 +334,6 @@ vendor/lib/libthermalioctl.so
 bin/time_daemon
 vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
-
-# USB
-etc/firmware/ice40.bin
 
 # Venus (media) firmware
 etc/firmware/venus.b00
