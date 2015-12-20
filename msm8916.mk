@@ -67,6 +67,11 @@ PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
+# Camera
+PRODUCT_PACKAGES += \
+    libboringssl-compat \
+    libbson
+
 # Display
 PRODUCT_PACKAGES += \
     gralloc.msm8916 \
@@ -107,11 +112,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
     $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
-
-# Misc
-PRODUCT_PACKAGES += \
-    libboringssl-compat \
-    libbson
 
 # OMX
 PRODUCT_PACKAGES += \
