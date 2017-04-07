@@ -14,7 +14,6 @@
 # limitations under the License.
 
 -include vendor/motorola/msm8916-common/BoardConfigVendor.mk
-
 VENDOR_PATH := device/motorola/msm8916-common
 
 BOARD_VENDOR := motorola-qcom
@@ -47,7 +46,7 @@ TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
-USE_CUSTOM_AUDIO_POLICY := 1
+USE_CUSTOM_AUDIO_POLICY := 0
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
@@ -65,7 +64,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_NO_CHARGER_LED := true
 
 # Crypto
-TARGET_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION := false
 
 # Display
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
