@@ -47,7 +47,7 @@ TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
-USE_CUSTOM_AUDIO_POLICY := 1
+USE_CUSTOM_AUDIO_POLICY := 0
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
@@ -66,6 +66,7 @@ BOARD_NO_CHARGER_LED := true
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
 
 # Display
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
@@ -114,7 +115,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
+#include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Wifi
