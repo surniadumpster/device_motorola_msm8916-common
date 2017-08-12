@@ -73,11 +73,19 @@ PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
+# Browser
+PRODUCT_PACKAGES += \
+    Gello
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8916 \
     libbson \
-    Snap
+    Camera2
+
+# CMActions
+PRODUCT_PACKAGES += \
+    Actions
 
 # Display
 PRODUCT_PACKAGES += \
@@ -86,15 +94,14 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8916 \
     memtrack.msm8916
 
-# CMActions
-PRODUCT_PACKAGES += \
-    CMActions
-
 # Ebtables
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libebtc
+
+# EGL implementation
+PRODUCT_PACKAGES += libGLES_android
 
 # Firmware Extraction
 ifeq ($(filter surnia,$(TARGET_DEVICE)),)
@@ -114,8 +121,6 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8916
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -210,5 +215,5 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 $(call inherit-product-if-exists, vendor/motorola/msm8916-common/msm8916-common-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, vendor/omni/config/gsm.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/omni/config/gsm.mk)

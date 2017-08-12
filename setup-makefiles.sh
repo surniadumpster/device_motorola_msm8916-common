@@ -21,9 +21,9 @@ set -e
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-SLIM_ROOT="$MY_DIR"/../../..
+VALIDUS_ROOT="$MY_DIR"/../../..
 
-HELPER="$SLIM_ROOT"/vendor/slim/build/tools/extract_utils.sh
+HELPER="$VALIDUS_ROOT"/vendor/validus/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -31,7 +31,7 @@ fi
 . "$HELPER"
 
 # Initialize the helper for common
-setup_vendor "$DEVICE_COMMON" "$VENDOR" "$SLIM_ROOT" "true"
+setup_vendor "$DEVICE_COMMON" "$VENDOR" "$VALIDUS_ROOT" "true"
 
 # Copyright headers and guards
 write_headers "harpia lux merlin osprey surnia"
@@ -44,7 +44,7 @@ write_footers
 
 if [ -s "$MY_DIR"/../$DEVICE/proprietary-files.txt ]; then
     # Reinitialize the helper for device
-    setup_vendor "$DEVICE" "$VENDOR" "$SLIM_ROOT"
+    setup_vendor "$DEVICE" "$VENDOR" "$VALIDUS_ROOT"
 
     # Copyright headers and guards
     write_headers

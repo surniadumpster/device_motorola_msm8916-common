@@ -30,21 +30,11 @@
         </service>
 
         <activity
-            android:name=".DozePreferenceActivity"
-            android:label="@string/ambient_display_title"
-            android:theme="@style/CMActions">
-            <intent-filter>
-                <action android:name="org.cyanogenmod.settings.device.DOZE_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name=".TouchscreenGesturePreferenceActivity"
             android:label="@string/screen_gestures_panel_title"
             android:theme="@style/CMActions">
             <intent-filter>
-                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+            <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
             <meta-data
                 android:name="com.android.settings.category"
