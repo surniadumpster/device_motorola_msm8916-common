@@ -179,6 +179,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
 
+# libvirtual
+PRODUCT_PACKAGES += \
+    libvirtual
+
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd_default.conf \
