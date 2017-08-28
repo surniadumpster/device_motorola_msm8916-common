@@ -89,4 +89,4 @@ ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 
 # Storage
-ro.sys.sdcardfs=true
+#ro.sys.sdcardfs=true
