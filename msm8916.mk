@@ -53,6 +53,8 @@ PRODUCT_AAPT_CONFIG := normal
 
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
     audiod \
     audio.a2dp.default \
     audio.r_submix.default \
@@ -62,6 +64,10 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libqcompostprocbundle \
     tinymix
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl
 
 # Only build audio HAL on non-lux devices
 ifeq ($(filter lux,$(TARGET_DEVICE)),)
@@ -85,6 +91,9 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.composer@2.1-impl \
     gralloc.msm8916 \
     copybit.msm8916 \
     hwcomposer.msm8916 \
@@ -117,6 +126,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+
 # IMS
 PRODUCT_PACKAGES += \
     libshims_ims
@@ -129,8 +142,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     keystore.msm8916
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
+
 # Lights
 PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
     lights.msm8916
 
 # Media
@@ -153,6 +171,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-impl \
     power.msm8916
 
 # Ramdisk
@@ -160,6 +179,10 @@ PRODUCT_PACKAGES += \
     init.qcom.bt.sh \
     init.qcom.ril.sh \
     stml0xx_wrapper.sh
+
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -183,8 +206,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libvirtual
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
 # Wifi
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    wificond \
     hostapd_default.conf \
     hostapd \
     wpa_supplicant \
