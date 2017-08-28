@@ -214,6 +214,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     wificond \
+    wifilogd \
     hostapd_default.conf \
     hostapd \
     wpa_supplicant \
