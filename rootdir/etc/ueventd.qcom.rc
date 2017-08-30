@@ -41,7 +41,7 @@
 /dev/log/*                0666   root       log
 
 # the DIAG device node is not world writable/readable.
-/dev/diag                 0660   system     qcom_diag
+/dev/diag                 0660   system     diag
 /dev/ttydiag0             0660   system     qcom_diag
 /dev/ttydiag1             0660   system     qcom_diag
 /dev/ttydiag2             0660   system     qcom_diag
