@@ -116,6 +116,10 @@ TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+ # Qualcomm support
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QC_TIME_SERVICES := true
+
 # HIDL
 PRODUCT_COPY_FILES += \
     $(VENDOR_PATH)/manifest.xml:system/vendor/manifest.xml
