@@ -48,6 +48,9 @@ LZMA_RAMDISK_TARGETS := boot,recovery
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
 
+# Use mke2fs instead of make_ext4fs
+TARGET_USES_MKE2FS := true
+
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 1
