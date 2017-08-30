@@ -204,6 +204,10 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
+# WiFi HAL
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service
+
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
@@ -212,6 +216,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     hostapd_default.conf \
     hostapd \
+    wificond \
+    wifilogd \
     wpa_supplicant \
     wpa_supplicant.conf
 
@@ -224,8 +230,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libcurl \
-    libqsap_sdk \
-    libQWiFiSoftApCfg \
     tcpdump \
     wcnss_service
 
