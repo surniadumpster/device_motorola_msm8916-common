@@ -44,8 +44,12 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+LZMA_RAMDISK_TARGETS := boot,recovery
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
+
+# Use mke2fs instead of make_ext4fs
+TARGET_USES_MKE2FS := true
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -75,10 +79,12 @@ TARGET_HW_DISK_ENCRYPTION := true
 
 # Display
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
+TARGET_USES_GRALLOC1 := true
+TARGET_USES_HWC2 := true
+TARGET_USES_NEW_ION_API :=true
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 # FM
 BOARD_HAVE_QCOM_FM := true
@@ -100,9 +106,6 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # Properties
 TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
 
-# Qualcomm support
-BOARD_USES_QCOM_HARDWARE := true
-
 # Radio
 BOARD_PROVIDES_LIBRIL := true
 BOARD_PROVIDES_RILD := true
@@ -113,12 +116,20 @@ TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+ # Qualcomm support
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QC_TIME_SERVICES := true
+
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(VENDOR_PATH)/manifest.xml:system/vendor/manifest.xml
+
 # Release Tools
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+#include device/qcom/sepolicy/sepolicy.mk
+#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -127,6 +138,4 @@ BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
-WIFI_DRIVER_MODULE_NAME := "wlan"
 WPA_SUPPLICANT_VERSION := VER_0_8_X

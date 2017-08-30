@@ -54,14 +54,23 @@ PRODUCT_AAPT_CONFIG := normal
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
+    audio.primary.msm8916 \
     audio.a2dp.default \
-    audio.r_submix.default \
     audio.usb.default \
+    audio.r_submix.default \
     libaudio-resampler \
+
+PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libqcompostprocbundle \
-    tinymix
+    libqcomvoiceprocessingdescriptors \
+    libqcompostprocbundle
+
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.broadcastradio@1.0-impl \
+    android.hardware.soundtrigger@2.0-impl
 
 # Only build audio HAL on non-lux devices
 ifeq ($(filter lux,$(TARGET_DEVICE)),)
@@ -75,6 +84,8 @@ PRODUCT_COPY_FILES +=  \
 
 # Camera
 PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl \
+    camera.device@3.2-impl \
     camera.msm8916 \
     libbson \
     Snap
@@ -85,16 +96,37 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.memtrack@1.0-impl \
     gralloc.msm8916 \
-    copybit.msm8916 \
+    libgenlock \
     hwcomposer.msm8916 \
     memtrack.msm8916
+
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
 
 # Ebtables
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libebtc
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
+# Keymaster HAL
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
 
 # Firmware Extraction
 ifeq ($(filter surnia,$(TARGET_DEVICE)),)
@@ -131,6 +163,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
     lights.msm8916
 
 # Media
@@ -153,6 +186,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-impl \
     power.msm8916
 
 # Ramdisk
@@ -169,20 +203,43 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     ueventd.qcom.rc
 
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl
+
+# USB HAL
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
 # RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     librmnetctl \
     libxml2
 
+# WiFi HAL
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    libbt-vendor \
+    android.hardware.bluetooth@1.0-impl
+
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
+
+# Launcher3
+PRODUCT_PACKAGES += \
+    Launcher3
 
 # Wifi
 PRODUCT_PACKAGES += \
     hostapd_default.conf \
     hostapd \
+    wificond \
+    wifilogd \
     wpa_supplicant \
     wpa_supplicant.conf
 
@@ -195,10 +252,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libcurl \
-    libqsap_sdk \
-    libQWiFiSoftApCfg \
     tcpdump \
-    wcnss_service
+    wcnss_service \
+    libwpa_client
 
 PRODUCT_COPY_FILES += \
     kernel/motorola/msm8916/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
