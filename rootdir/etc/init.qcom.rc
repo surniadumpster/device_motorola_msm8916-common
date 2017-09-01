@@ -685,16 +685,16 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
-service ril-daemon /vendor/bin/hw/rild
-    class late_start
-    user radio
-    group radio cache inet misc audio log readproc wakelock
-    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
-
-service ril-daemon2 /vendor/hw/bin/rild -c 2
+service ril-daemon /system/vendor/bin/hw/rild
     class main
     user radio
-    group radio cache inet misc audio log readproc wakelock
+    group radio cache inet misc audio log readproc wakelock qcom_diag net_raw
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
+
+service ril-daemon2 /system/vendor/bin/hw/rild -c 2
+    class main
+    user radio
+    group radio cache inet misc audio log readproc wakelock qcom_diag net_raw
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service rild2-wrapper /system/bin/sh /system/etc/init.qcom.ril.sh
@@ -777,3 +777,4 @@ on moto-charger
     start batt_health
     start thermal-com
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
+
