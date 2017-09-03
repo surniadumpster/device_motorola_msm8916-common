@@ -201,8 +201,7 @@ PRODUCT_PACKAGES += \
     init.mmi.touch.sh \
     init.mmi.usb.rc \
     init.qcom.rc \
-    ueventd.qcom.rc \
-    loggy.sh
+    ueventd.qcom.rc
 
 # Sensors
 PRODUCT_PACKAGES += \
