@@ -94,6 +94,9 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 # Filesystem
 TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
 
+# Graphics
+SF_START_GRAPHICS_ALLOCATOR_SERVICE := true
+
 # Keymaster
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
