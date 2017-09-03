@@ -114,7 +114,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
-    libebtc
+    libebtc \
+    libqsap_sdk
 
 # DRM
 PRODUCT_PACKAGES += \
