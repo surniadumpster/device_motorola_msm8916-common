@@ -217,7 +217,8 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     librmnetctl \
     libxml2 \
-    android.hardware.radio@1.0-impl
+    android.hardware.radio@1.0-impl \
+    android.hardware.radio.deprecated@1.0
 
 # WiFi HAL
 PRODUCT_PACKAGES += \
