@@ -10,9 +10,11 @@ LOCAL_SRC_FILES := \
 
 LOCAL_STATIC_LIBRARIES := libbase libarect
 LOCAL_SHARED_LIBRARIES := \
+    libbase \
     libhardware \
     liblog \
     libcamera_client \
+    ilibcutils \
     libgui \
     libhidltransport \
     libsensor \
