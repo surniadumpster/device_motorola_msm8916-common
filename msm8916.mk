@@ -88,7 +88,7 @@ PRODUCT_PACKAGES += \
     libbson \
     libc_util \
     libshims_camera \
-    Snap
+    libshims_sensorlistener
 
 # Camera properties
 PRODUCT_PROPERTY_OVERRIDES += \
