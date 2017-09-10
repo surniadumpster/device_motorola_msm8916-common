@@ -17,9 +17,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES := MediaCodec.cpp
+LOCAL_SRC_FILES := MediaCodec.cpp SensorManager.cpp moto_camera_misc.c
 
-LOCAL_SHARED_LIBRARIES := libstagefright libmedia
+LOCAL_SHARED_LIBRARIES := libstagefright libmedia libutils libsensor liblog libbinder libbase
 
 LOCAL_MODULE := libshims_camera
 LOCAL_MODULE_TAGS := optional
@@ -30,12 +30,4 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := atomic.cpp
 LOCAL_MODULE := libshim_atomic
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-include $(BUILD_SHARED_LIBRARY)
-
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := SensorManager.cpp moto_camera_misc.c
-LOCAL_SHARED_LIBRARIES := libutils libsensor liblog libbinder libbase
-LOCAL_MODULE := libshim_camera
-LOCAL_MODULE_TAGS := optional
-
 include $(BUILD_SHARED_LIBRARY)
