@@ -31,20 +31,3 @@ LOCAL_SRC_FILES := atomic.cpp
 LOCAL_MODULE := libshim_atomic
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 include $(BUILD_SHARED_LIBRARY)
-
-
-ifeq $(call project-path-for,qcom-camera))
-MM_V4L2_DRIVER_LIST += msm8960
-MM_V4L2_DRIVER_LIST += msm8974
-MM_V4L2_DRIVER_LIST += msm8226
-MM_V4L2_DRIVER_LIST += msm8610
-MM_V4L2_DRIVER_LIST += msm_bronze
-MM_V4L2_DRIVER_LIST += msm8916
-MM_V4L2_DRIVER_LIST += msm8909
-LOCAL_32_BIT_ONLY := true
-ifeq ($(call is-board-platform-in-list,$(MM_V4L2_DRIVER_LIST)),true)
-    ifneq ($(BUILD_TINY_ANDROID),true)
-      include $(call all-subdir-makefiles)
-    endif
-endif
-endif
