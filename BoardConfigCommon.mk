@@ -62,6 +62,7 @@ QCOM_BT_READ_ADDR_FROM_PROP := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+TARGET_USES_NON_TREBLE_CAMERA := true
 
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
