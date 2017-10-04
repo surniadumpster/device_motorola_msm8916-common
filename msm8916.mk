@@ -87,7 +87,6 @@ PRODUCT_PACKAGES += \
     camera.msm8916 \
     camera.device@1.0-impl.legacy \
     libbson \
-    libshim_atomic \
     libc_util \
     libshims_camera \
     libshims_sensorlistener
